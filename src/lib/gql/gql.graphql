@@ -1,0 +1,43 @@
+# import userPartial from './partial.graphql'
+# import postPartial from './partial.graphql'
+
+query Viewer {
+  viewer {
+    ...userPartial
+    status
+  }
+  
+}
+
+
+query Post {
+  post {
+    ...postPartial
+    desc
+  }
+}
+
+query News {
+  news {
+    id
+	title
+	slug
+    desc
+  }
+  
+}
+
+
+mutation UpdateName($name: String!) {
+  updateName(name: $name) {
+    ...userPartial
+    status
+  }
+}
+
+mutation UpdatePost($title: String!) {
+  updatePost(title: $title) {
+    ...postPartial
+    desc
+  }
+}

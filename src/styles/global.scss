@@ -1,0 +1,458 @@
+// Global variables for ease in css code
+$thetransition: all 0.4s cubic-bezier(1, 0.25, 0, 0.75) 0s;
+$green-light: #eafcf7;
+$green: #31dfad;
+
+// Configuring 'Gilroy' font globally
+@font-face {
+  font-family: "Gilroy-Bold";
+  src: url("../assets/fonts/Gilroy-Bold.woff2") format("woff2");
+}
+
+// Assigning the 'Gilroy' font globally
+body {
+  font-family: "Gilroy-Bold", sans-serif !important;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: white;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #efefef;
+    border-radius: 40px;
+  }
+}
+
+.text-editor {
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+  &::-webkit-scrollbar-track {
+    background: white;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #efefef;
+    border-radius: 40px;
+  }
+}
+
+.text-editor,
+.profile-about,
+.profile-benefits,
+.desc-container,
+.todos-container {
+  font-family: sans-serif !important;
+  color: #677389;
+  word-wrap: break-word !important;
+  width: 100% !important;
+  ol {
+    list-style: decimal;
+    padding-left: 20px;
+    margin-top: 30px;
+    li {
+      padding-left: 10px;
+      margin-bottom: 20px;
+      &::marker {
+        color: #2960ff !important;
+      }
+    }
+  }
+  ul {
+    list-style: none; /* Remove default bullets */
+    margin-top: 30px;
+    li {
+      margin-bottom: 20px;
+      &::before {
+        content: "\2022";
+        color: #2960ff;
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+        padding-right: 1.3rem;
+      }
+    }
+  }
+
+  h1 {
+    display: block !important;
+    font-size: 22px !important;
+  }
+  p,
+  div {
+    font-family: sans-serif !important;
+    color: #677389;
+  }
+}
+
+.primary-bullet-list {
+  list-style: none; /* Remove default bullets */
+  margin-top: 30px;
+  li {
+    margin-bottom: 20px;
+    &::before {
+      content: "\2022";
+      color: #2960ff;
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+      padding-right: 1.3rem;
+    }
+  }
+}
+
+.active-link {
+  position: relative;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-right: 3rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    bottom: 0;
+    background: #2960ff;
+  }
+}
+
+.active-tab {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    bottom: 0;
+    left: 0;
+    background: #2960ff;
+  }
+}
+
+.active-sidebar-link {
+  position: relative;
+  margin-right: 3rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    bottom: 0;
+    background: #2960ff;
+    left: 0;
+  }
+}
+
+.active-notification {
+  position: relative;
+  margin-bottom: -20px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    bottom: 0;
+    background: #2960ff;
+    margin-left: -13px;
+  }
+}
+
+.active-avatar {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    bottom: -40%;
+    background: #2960ff;
+  }
+}
+
+.active-settings-link {
+  position: relative;
+  color: #2960ff;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    border-radius: 15px;
+    left: 0;
+    background: #2960ff;
+  }
+}
+
+.cool-transition {
+  transition: $thetransition;
+}
+
+.profile-header-bg {
+  background: url("/img/profile/profile-header.svg") center / cover no-repeat;
+}
+
+.latest-opts-dots {
+  position: absolute;
+  bottom: -35px;
+  list-style: none;
+  display: block;
+  text-align: left;
+  padding: 0;
+  padding-left: 10px;
+  margin: 0;
+  width: 100%;
+  li {
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin-right: -5px;
+    padding: 0;
+    cursor: pointer;
+    button {
+      border: 0;
+      background: transparent;
+      display: block;
+      height: 20px;
+      width: 20px;
+      outline: none;
+      line-height: 0px;
+      font-size: 0px;
+      color: transparent;
+      padding: 5px;
+      cursor: pointer;
+      &:hover,
+      &:focus {
+        outline: none;
+        &:before {
+          opacity: 1;
+        }
+      }
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "\2022";
+        width: 20px;
+        height: 20px;
+        font-family: "slick";
+        font-size: 8px;
+        line-height: 20px;
+        text-align: center;
+        color: #000;
+        opacity: 0.25;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+    }
+    &.slick-active button:before {
+      color: #000;
+      opacity: 0.75;
+    }
+  }
+}
+
+.profile-opts-dots {
+  position: absolute;
+  bottom: -35px;
+  list-style: none;
+  display: block;
+  text-align: center;
+  padding: 0;
+  padding-left: 10px;
+  margin: 0;
+  width: 100%;
+  li {
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin-right: -5px;
+    padding: 0;
+    cursor: pointer;
+    button {
+      border: 0;
+      background: transparent;
+      display: block;
+      height: 20px;
+      width: 20px;
+      outline: none;
+      line-height: 0px;
+      font-size: 0px;
+      color: transparent;
+      padding: 5px;
+      cursor: pointer;
+      &:hover,
+      &:focus {
+        outline: none;
+        &:before {
+          opacity: 1;
+        }
+      }
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "\2022";
+        width: 20px;
+        height: 20px;
+        font-family: "slick";
+        font-size: 8px;
+        line-height: 20px;
+        text-align: center;
+        color: #000;
+        opacity: 0.25;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+    }
+    &.slick-active button:before {
+      color: #000;
+      opacity: 0.75;
+    }
+  }
+}
+
+.checkbox-container {
+  display: block;
+  position: relative;
+  // padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: -7px;
+  left: 0;
+  border-radius: 4px;
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #eee;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #2960ff;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark:after {
+  left: 6px;
+  top: 1px;
+  width: 9px;
+  height: 14px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.notesPopup {
+  background: white !important;
+}
+
+.steps {
+  &__step {
+    width: 20%;
+    margin-right: 0.25rem;
+    &:last-child {
+      margin-right: 0 !important;
+    }
+  }
+
+  &__oppStep {
+    width: 16.6666666667%;
+    margin-right: 0.25rem;
+    &:last-child {
+      margin-right: 0 !important;
+    }
+  }
+}
+
+.global-dropdown {
+  z-index: 999999999999999 !important;
+}
+
+.negative-top {
+  top: -260px;
+}
+
+.signup-profileImg-container {
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='200px' height='200px' fill='none' rx='100' ry='100' stroke='#2960FF' stroke-width='1' stroke-dasharray='6%2c 20' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 100px;
+  height: 200px;
+  width: 200px;
+  background-color: white;
+}
+
+.active-message {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    bottom: 0;
+    background: #2960ff;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .active-message {
+    &::before {
+      width: 0 !important;
+      height: 0 !important;
+    }
+  }
+}
+
+.credit-card-bg {
+  background: url("/img/payment-methods/credit-card-bg.svg") center / contain
+    no-repeat;
+  height: 200px;
+}

@@ -1,0 +1,10 @@
+fragment userPartial on User {
+  id
+  name
+}
+
+fragment postPartial on Post {
+  id
+  title
+  slug
+}

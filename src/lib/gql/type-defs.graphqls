@@ -1,0 +1,10 @@
+type Query {
+  viewer: User!
+  post: Post!
+  news: News!
+}
+
+type Mutation {
+  updateName(name: String!): User!
+  updatePost(title: String!): Post!
+}
